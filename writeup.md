@@ -20,7 +20,7 @@ My pipeline consisted of X steps.
 1. Convert the image to grayscale.
 2. Blur the image using GaussianBlur. I used a filter size of 11 based on my experimentation with the GUI tool for Canny edge detection here: https://github.com/maunesh/opencv-gui-helper-tool
 3. Detect the edges using Canny edge detection. Used a low and high threshold of 40 and 150 respectively, which is close to the 1:3 ratio recommended for the algorithm.
-4. Calculate the vertices for the region-of-interest. I use a quadrilateral area, with the bottom equal to the image width and top equal to 1/25th of the width (to simulate lane shape).   
+4. Calculate the vertices for the region-of-interest. I use a trapeziodal area, with the bottom equal to the image width and top equal to 1/25th of the width (to simulate lane shape).
 The top edge is shifted by 50 pixels downward to avoid the noise in edge detection in the centre of image, which comes from cars entering the lane apex. 
 5. Generate the region of interest using the vertices on the detected edges and get rid of unnecessary edges outside lane-area.
 6. Detect line-segments using HoughTransformP and select the longest two line-segments with opposing slopes<sup>*</sup>.  
